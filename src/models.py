@@ -6,5 +6,5 @@ workers_table: Table = Table(
     "worker",
     metadata_obj,
     Column("id", Integer, primary_key=True),
-    Column("id", String),
+    Column("username", String),
 )
