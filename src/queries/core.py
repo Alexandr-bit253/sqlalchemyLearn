@@ -2,8 +2,8 @@ from typing import Any
 
 from sqlalchemy import CursorResult, text
 
-from ..database import engine
-from ..models import metadata_obj
+from database import engine
+from models import metadata_obj
 
 
 async def print_version_postgresql():
