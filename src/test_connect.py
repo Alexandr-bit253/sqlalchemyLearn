@@ -1,6 +1,8 @@
-from config import settings
 import asyncio
+
 import asyncpg
+
+from config import settings
 
 
 async def test_connection():
@@ -10,7 +12,7 @@ async def test_connection():
             password=settings.DB_PASSWORD,
             database=settings.DB_NAME,
             host=settings.DB_HOST,
-            port=settings.DB_PORT
+            port=settings.DB_PORT,
         )
         print("Connection succes!")
         await conn.close()
