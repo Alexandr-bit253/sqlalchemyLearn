@@ -1,5 +1,14 @@
 {
     "python-envs.defaultEnvManager": "ms-python.python:poetry",
     "python-envs.defaultPackageManager": "ms-python.python:poetry",
-    "python-envs.pythonProjects": []
+    "python.terminal.activateEnvironment": true,
+    "python.analysis.autoImportCompletions": true,
+    "python-envs.pythonProjects": [],
+    "python.analysis.extraPaths": ["./src"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",        // исправлять ошибки Ruff
+      "source.organizeImports.ruff": "explicit"// сортировать импорты Ruff
+    },
 }

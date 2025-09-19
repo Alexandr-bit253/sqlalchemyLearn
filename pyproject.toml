@@ -1,22 +1,30 @@
-[project]
+[tool.poetry]
 name = "sqlalchemylearn"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Yoda",email = "yoda@example.com"}
-]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "sqlalchemy (>=2.0.43,<3.0.0)",
-    "pydantic (>=2.11.9,<3.0.0)",
-    "asyncpg (>=0.30.0,<0.31.0)",
-    "psycopg2 (>=2.9.10,<3.0.0)",
-    "asyncio (>=4.0.0,<5.0.0)",
-    "pydantic-settings (>=2.10.1,<3.0.0)"
-]
+authors = ["Yoda <yoda@example.com>"]
+license = "MIT"
+keywords = ["sqlalchemy", "async", "pydantic"]
 
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+sqlalchemy = { version = ">=2.0.43,<3.0.0", extras = ["asyncio"] }
+pydantic = ">=2.11.9,<3.0.0"
+asyncpg = ">=0.30.0,<0.31.0"
+psycopg2 = ">=2.9.10,<3.0.0"
+pydantic-settings = ">=2.10.1,<3.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = { version = ">=0.13.1,<0.14.0", optional = false }
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# Доп. конфиг для ruff (можно вынести в ruff.toml, если хочешь)
+[tool.ruff]
+line-length = 88
+# включать/отключать правила по необходимости
+# select = ["E", "F", "W", "C", "I"]
+# exclude = ["tests/*"]
