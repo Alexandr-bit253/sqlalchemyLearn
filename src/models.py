@@ -8,3 +8,10 @@ workers_table: Table = Table(
     Column("id", Integer, primary_key=True),
     Column("username", String),
 )
+
+employer: Table = Table(
+    "employer",
+    metadata_obj,
+    Column("id", Integer, primary_key=True),
+    Column("username", String),
+)
