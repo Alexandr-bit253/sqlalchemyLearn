@@ -1,9 +1,9 @@
 from typing import Any
 
-from sqlalchemy import CursorResult, text
+from sqlalchemy import CursorResult, insert, text
 
 from database import engine
-from models import metadata_obj
+from models import metadata_obj, workers_table
 
 
 async def print_version_postgresql():
@@ -23,9 +23,18 @@ async def create_tables():
 
 async def insert_data():
     async with engine.connect() as conn:
-        stmt = """INSERT INTO employer (username) VALUES
-                    ('Bobr'),
-                    ('Volk');"""
-        await conn.execute(text(stmt))
+        # sql
+        # stmt = """INSERT INTO employer (username) VALUES
+        #             ('Bobr'),
+        #             ('Volk');"""
+
+        # query builder
+        stmt = insert(workers_table).values(
+            [
+                {"username": "Bobr"},
+                {"username": "Volk"},
+            ]
+        )
+        await conn.execute(stmt)
         await conn.commit()
     await engine.dispose()

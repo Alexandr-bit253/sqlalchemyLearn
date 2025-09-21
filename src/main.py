@@ -5,7 +5,9 @@ import sys
 sys.path.insert(1, os.path.join(sys.path[0], ".."))
 
 from database import engine
-from queries.core import create_tables, insert_data
+
+# from queries.core import create_tables, insert_data
+from queries.orm import create_tables, insert_data
 
 
 async def main():
